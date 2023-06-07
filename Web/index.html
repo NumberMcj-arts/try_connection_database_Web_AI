@@ -3,46 +3,24 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>My awesome Path Planning</title>
+		<title>AI Web Test</title>
 		<script type="text/javascript" src="plan.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="mainPage.css">
 		<meta content="charset=utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0"/>
 	</head>
-	<body onload="initObstaclesPath()" onresize="resizeObstaclesPath()">
+	<body onload="init()">
 
-		<div id="mainContainer">
-			<canvas id="obstaclesPath">
-				Dein Browser kann alles, was wichtig ist, nicht darstellen, du Lusche xD
-			</canvas>
-			</br>
-			<div id="wholeProgressBar">
-				<div id="justBarOfProgress">
-					<div id="progressLabel">1%</div>
-				</div>
-			</div>
-			</br>
-			<input type="radio" name="mode" id="selectStart" /> Select Start
-			<input type="radio" name="mode" id="selectFinish" /> Select Finish
-			<input type="radio" name="mode" id="drawObstacles" /> Draw Obstacles
-			<input type="radio" name="mode" id="eraseObstacles" /> Erase Obstacles
-			</br>
-			Obstacle Probability (percentage of distance increasement):
-			<input type="number" id="obstacleProbability" min="1" max="100" step="1" value="100"/> %
-			</br>
-			<input type="submit" value="Plan Path" onclick="process()">
-			<input type="checkbox" id="withDiagonale" /> Include diagonales
-			</br>
-			<input type="text" value="HHHNNNNGGG" id="savedImageName">
-			<input type="submit" value="Save Obstacles" onclick="saveImage()">
-			</br>
-			<select id="obstacleImgFiles"></select>
-			<input type="submit" value="Load Obstacles" onclick="loadImage()">
-			</br>
-			This is the way how it works :-p</br>
-			<img src="styleImages/explanation.png"/>
-		</div>
-		</br>
+		<input type="number" id="obstacleProbability" min="1" max="100" step="1" value="100"/>
+
+		<input type="radio" name="mode" id="selectStart" />  
+		<input type="radio" name="mode" id="selectFinish" />  
+		<input type="radio" name="mode" id="drawObstacles" />  
+		<input type="radio" name="mode" id="eraseObstacles" />  
+
+		<input type="submit" value="Plan Path" onclick="process()">
+		<input type="checkbox" id="withDiagonale" />
+
+		<img src="ressources/test.png"/>
 	</body>
 </html>
