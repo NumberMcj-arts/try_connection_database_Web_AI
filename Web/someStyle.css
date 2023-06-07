@@ -1,0 +1,50 @@
+body
+{
+	background: url('styleImages/background.jpg');
+	background-size: 100% auto;
+	color: green;
+}
+
+#obstaclesPath
+{
+	width: 100%;
+	height: auto;
+	margin: 0px;
+}
+
+#mainContainer
+{
+	width: 60%; 
+	margin: auto;
+}
+
+#wholeProgressBar
+{
+	position: relative;
+	width: 100%;
+	height: 30px;
+	background-color: grey;
+}
+
+#justBarOfProgress
+{
+	position: absolute;
+	width: 1%;
+	height: 100%;
+	background-color: green;
+}
+
+#progressLabel
+{
+	text-align: center;
+	line-height: 30px;
+	color: white;
+}
+
+@media only screen and (max-width: 768px)
+{
+	#mainContainer{
+		width: auto;
+	}
+	
+}
