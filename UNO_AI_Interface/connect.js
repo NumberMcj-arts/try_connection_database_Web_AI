@@ -48,8 +48,6 @@ var test = {
     ]
 };
 
-//var players;
-var img_idx = 0;
 var card_idx = 0;
 
 function readJSON(file) {
@@ -61,7 +59,6 @@ function readJSON(file) {
 };
 
 function loadPlayers(){
-	//players = [];
 	var players_div = document.getElementById("players");
 	test.players_cards_in_hand.forEach(function(currentPlayer, index){
 		var player_in_div = document.createElement("output");
@@ -105,16 +102,28 @@ function loadGameState(){
 	gamestate_div.appendChild(document.createElement("br"));
 }
 
-function add_image(parent_element_id, img_name){
+function add_image(parent_element_id, img_name, img_descr){
+	
+	var card_div = document.createElement("div");
+	//card_div.style = "outline: 5px dotted green;";
+	//card_div.id = "card_div_" + card_idx.toString();
+	//card_idx += 1;
+	
 	var parent_element = document.getElementById(parent_element_id);
 	var img_fname = imgs_path + img_name;
 	var image = document.createElement("img");
+	var descr_div = document.createElement("output");
+	
+	descr_div.value = img_descr;
 	
 	image.src = img_fname;
-	image.id = img_name + "_img_nr_" + img_idx.toString();
-	img_idx += 1;
 	//image.style = "background-color:red;";
-	parent_element.appendChild(image);
+	//card_div.appendChild(descr_div);
+	//card_div.appendChild(document.createElement("br"));
+	card_div.appendChild(image);
+	//card_div.appendChild(descr_div);
+	
+	parent_element.appendChild(card_div);
 }
 
 function add_card(parent_element_id, card_name){
@@ -153,10 +162,11 @@ function add_card(parent_element_id, card_name){
 }
 
 function loadImages(){
-	add_image("images_test", "cards/5.png");
-	add_image("images_test", "cards/8.png");
-	add_card("images_test", "red:9");
-	add_card("images_test", "color_desire:nr:3");
+	add_image("images_test", "cards/5.png", "Bonze");
+	add_image("images_test", "cards/8.png", "Sack");
+	//add_image("images_test", "cards/9.png", "Viech");
+	//add_card("images_test", "red:9");
+	//add_card("images_test", "color_desire:nr:3");
 }
 
 function initState(){
