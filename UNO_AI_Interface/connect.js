@@ -26,7 +26,7 @@ var test = {
     CurrentPlayerIndex: 3, 
     IsForwardPlayingDirection: false, 
     NecessaryValue: "2", 
-    NrOfCardsTaking: 0, 
+    NrOfCardsTaking: 4, 
     NecessaryColor: "blue", 
     players_cards_in_hand: [
         {
@@ -96,9 +96,9 @@ function loadGameState(){
 	gamestate_div.appendChild(document.createElement("br"));
 	
 	// nr of cards taking
-	var nr_cards_taking_div = document.createElement("output");
-	nr_cards_taking_div.value = "+" + test.NrOfCardsTaking.toString();
-	document.getElementById("nrOfCardsTaking").appendChild(nr_cards_taking_div);
+	for (var i = 0; i < test.NrOfCardsTaking; i += 1){
+		add_image("nrOfCardsTaking", "card.png", "");
+	}
 	document.getElementById("nrOfCardsTaking").appendChild(document.createElement("br"));
 }
 
