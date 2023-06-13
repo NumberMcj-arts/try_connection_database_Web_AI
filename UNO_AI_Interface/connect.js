@@ -1,4 +1,4 @@
-var imgs_path = "../../../Web/ressources/";
+var imgs_path = "ressources/";
 
 var test = {
     curr_player_state: {
