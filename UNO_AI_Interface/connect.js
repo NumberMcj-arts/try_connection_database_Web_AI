@@ -48,8 +48,6 @@ var test = {
     ]
 };
 
-//var card_idx = 0;
-
 function readJSON(file) {
     var request = new XMLHttpRequest();
     request.open('GET', file, false);
@@ -69,7 +67,6 @@ function loadPlayers(){
 			player_in_div.value = currentPlayer.player_name + ": " + currentPlayer.nr_cards_in_hand + "Cards";
 		}
 		player_in_div.id = "player" + index.toString();
-		//players.add(player_in_div);
 		players_div.appendChild(player_in_div);
 		players_div.appendChild(document.createElement("br"));
 	});
@@ -79,10 +76,6 @@ function loadGameState(){
 	var gamestate_div = document.getElementById("gamestate");
 	
 	// card on top
-	//var card_on_top_div = document.createElement("output");
-	//card_on_top_div.value = test.card_on_top;
-	//gamestate_div.appendChild(card_on_top_div);
-	//gamestate_div.appendChild(document.createElement("br"));
 	add_card("card_on_top", test.card_on_top);
 	
 	// playing direction
@@ -104,12 +97,6 @@ function loadGameState(){
 }
 
 function add_image(parent_element_id, img_name, img_color){
-	
-	//var card_div = document.createElement("div");
-	//card_div.style = "outline: 5px dotted green;";
-	//card_div.id = "card_div_" + card_idx.toString();
-	//card_idx += 1;
-	
 	var parent_element = document.getElementById(parent_element_id);
 	var img_fname = imgs_path + img_name;
 	var image = document.createElement("img");
@@ -117,9 +104,7 @@ function add_image(parent_element_id, img_name, img_color){
 	image.width = 100;
 	image.height = 100;
 	image.src = img_fname;
-	//image.style = "background-color:red;";
 	
-	//image.style = "border: 5px solid red;";
 	if ((img_color == "yellow")
 		|| (img_color == "blue")
 		|| (img_color == "red")
@@ -127,20 +112,10 @@ function add_image(parent_element_id, img_name, img_color){
 	{
 		image.style = "border: 5px solid " + img_color + ";";
 	}
-	//parent_element.appendChild(descr_div);
-	//parent_element.appendChild(document.createElement("br"));
 	parent_element.appendChild(image);
-	
-	//parent_element.appendChild(card_div);
 }
 
 function add_card(parent_element_id, card_name){
-	//var parent_element = document.getElementById(parent_element_id);
-	
-	//var card_div = document.createElement("div");
-	//card_div.id = "card_div_" + card_idx.toString();
-	//card_idx += 1;
-	
 	var img_color = card_name.split(":")[0];
 	var img_name;
 	
@@ -157,13 +132,6 @@ function add_card(parent_element_id, card_name){
 	}
 	
 	add_image(parent_element_id, img_name, img_color);
-	
-	//add_image(card_div.id, img_name);
-	//card_div.appendChild(document.createElement("br"));
-	//card_div.appendChild(descr_div);
-	//card_div.appendChild(document.createElement("br"));
-	
-	//parent_element.appendChild(card_div);
 }
 
 function add_possibility(parent_element_id, possibility_name){
@@ -233,10 +201,6 @@ function loadMyPossibilities(){
 }
 
 function initState(){
-	//test = readJSON('sample.json');
-	//test = parseJSON('sample.json');
-	//document.getElementById('state').value = test;
-	
 	//test_loadImages();
 	
 	document.getElementById('error').value = ":)";
@@ -250,11 +214,6 @@ function initState(){
 }
 
 function update(){
-/*	var player = document.createElement("output");
-	player.value = "Karsten\n";
-	var players = document.getElementById("players");
-	players.appendChild(player);
-	players.appendChild(document.createElement("br"));*/
 	document.getElementById('info').value = "NOT SUPPORTED";
 }
 
