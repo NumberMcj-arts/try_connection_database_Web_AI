@@ -59,13 +59,21 @@ function readJSON(file) {
 function loadPlayers(){
 	var players_div = document.getElementById("players");
 	test.players_cards_in_hand.forEach(function(currentPlayer, index){
-		var player_in_div = document.createElement("output");
-		player_in_div.value = currentPlayer.player_name + ": " + currentPlayer.nr_cards_in_hand + " Cards";
+		var player_in_div = document.createElement("div");
+		var player_name_div = document.createElement("output");
+		player_name_div.value = currentPlayer.player_name;
 		if (currentPlayer.player_name == test.current_player){
 			player_in_div.style = "border: 2px solid";
 		}
-		player_in_div.id = "player" + index.toString();
+		player_in_div.id = "player" + index.toString() + "     ";
+		player_in_div.appendChild(player_name_div);
+		
 		players_div.appendChild(player_in_div);
+		
+		player_in_div.appendChild(document.createElement("br"));
+		for (var i = 0; i < currentPlayer.nr_cards_in_hand; i += 1){
+			add_image(player_in_div.id, "card.png", "");
+		}
 		players_div.appendChild(document.createElement("br"));
 	});
 }
