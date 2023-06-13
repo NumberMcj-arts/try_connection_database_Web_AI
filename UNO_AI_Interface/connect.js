@@ -79,10 +79,11 @@ function loadGameState(){
 	var gamestate_div = document.getElementById("gamestate");
 	
 	// card on top
-	var card_on_top_div = document.createElement("output");
-	card_on_top_div.value = test.card_on_top;
-	gamestate_div.appendChild(card_on_top_div);
-	gamestate_div.appendChild(document.createElement("br"));
+	//var card_on_top_div = document.createElement("output");
+	//card_on_top_div.value = test.card_on_top;
+	//gamestate_div.appendChild(card_on_top_div);
+	//gamestate_div.appendChild(document.createElement("br"));
+	add_card("card_on_top", test.card_on_top);
 	
 	// playing direction
 	var play_direct_div = document.createElement("output");
