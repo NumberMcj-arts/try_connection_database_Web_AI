@@ -175,6 +175,12 @@ function loadImages(){
 	add_card("images_test", "blue:turn_around");
 }
 
+function loadMyCards(){
+	test.curr_player_state.cards_on_hand.forEach(function(curr_card, index){
+		add_card("My_Cards", curr_card);
+	});
+}
+
 function initState(){
 	//test = readJSON('sample.json');
 	//test = parseJSON('sample.json');
@@ -184,6 +190,7 @@ function initState(){
 	loadGameState();
 	
 	loadImages();
+	loadMyCards();
 }
 
 function update(){
