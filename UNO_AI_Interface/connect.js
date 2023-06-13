@@ -207,7 +207,7 @@ function loadMyPossibilities(){
 		radio_img_div.id = "action_" + curr_action;
 		//add_possibility("My_Actions", curr_action);
 		radio_img_div.appendChild(possibility_radio_div);
-		add_possibility(radio_img_div.id, curr_action);
+		add_possibility("My_Actions", curr_action);
 		document.getElementById("My_Actions").appendChild(radio_img_div);
 	});
 }
