@@ -102,6 +102,19 @@ function loadGameState(){
 	gamestate_div.appendChild(document.createElement("br"));
 }
 
+function loadImages(){
+	
+	var img_path = "../../../Web/ressources/cards/1.png";
+	
+	var images_div = document.getElementById("images_test");
+	
+	var image = document.createElement("img");
+	image.id = "test";
+	image.src = img_path;
+	//image.setAttribute(src, img_path);
+	images_div.appendChild(image);
+}
+
 function initState(){
 	//test = readJSON('sample.json');
 	//test = parseJSON('sample.json');
@@ -110,13 +123,7 @@ function initState(){
 	loadPlayers();
 	loadGameState();
 	
-	var image = document.createElement("img");
-	var imageParent = document.getElementById("body");
-	image.id = "id";
-	image.className = "class";
-	image.src = "ressources/cards/1.png";
-	imageParent.appendChild(image);
-	document.getElementById("card1").setAttribute(src, image.src);
+	loadImages();
 }
 
 function update(){
