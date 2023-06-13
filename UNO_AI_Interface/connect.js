@@ -167,12 +167,6 @@ function add_card(parent_element_id, card_name){
 }
 
 function add_possibility(parent_element_id, possibility_name){
-	//var parent_element = document.getElementById(parent_element_id);
-	
-	//var card_div = document.createElement("div");
-	//card_div.id = "card_div_" + card_idx.toString();
-	//card_idx += 1;
-	
 	var img_name;
 	
 	if (possibility_name.split(":")[0] == "play"){
