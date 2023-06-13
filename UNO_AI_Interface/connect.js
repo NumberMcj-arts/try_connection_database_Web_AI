@@ -110,12 +110,32 @@ function add_image(parent_element_id, img_name){
 	var image = document.createElement("img");
 	
 	image.src = img_fname;
+	//image.style = "background-color:red;";
 	parent_element.appendChild(image);
 }
 
 function loadImages(){
-	
 	add_image("images_test", "cards/5.png");
+	add_image("images_test", "cards/8.png");
+	add_card("images_test", "red:9");
+}
+
+function add_card(parent_element_id, card_name){
+	var img_color = card_name.split(":")[0];
+	var img_name;
+	
+	if ((img_color == "yellow")
+		|| (img_color == "blue")
+		|| (img_color == "red")
+		|| (img_color == "green"))
+	{
+		img_name = "cards/" + card_name.split(":")[1] + ".png";
+		}
+	else{
+		img_name = "cards/" + card_name.split(":")[0] + ".png";
+	}
+	
+	add_image(parent_element_id, img_name);
 }
 
 function initState(){
