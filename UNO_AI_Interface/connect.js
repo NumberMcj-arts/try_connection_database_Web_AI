@@ -97,7 +97,7 @@ function loadGameState(){
 	
 	// nr of cards taking
 	for (var i = 0; i < test.NrOfCardsTaking; i += 1){
-		add_image("nrOfCardsTaking", "card.png", "");
+		add_image("nrOfCardsTaking", "evil_card.png", "");
 	}
 	document.getElementById("nrOfCardsTaking").appendChild(document.createElement("br"));
 }
