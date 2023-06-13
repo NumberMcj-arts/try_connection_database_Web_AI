@@ -200,7 +200,15 @@ function loadMyCards(){
 
 function loadMyPossibilities(){
 	test.curr_player_state.possible_actions.forEach(function(curr_action, index){
-		add_possibility("My_Actions", curr_action);
+		var radio_img_div = document.createElement("div");
+		var possibility_radio_div = document.createElement("input");
+		possibility_radio_div.type = 'radio';
+		possibility_radio_div.name = 'choose_action';
+		radio_img_div.id = "action_" + curr_action;
+		//add_possibility("My_Actions", curr_action);
+		radio_img_div.appendChild(possibility_radio_div);
+		add_possibility(radio_img_div.id, curr_action);
+		document.getElementById("My_Actions").appendChild(radio_img_div);
 	});
 }
 
