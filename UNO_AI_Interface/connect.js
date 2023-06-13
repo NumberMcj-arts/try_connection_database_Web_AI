@@ -113,6 +113,8 @@ function add_image(parent_element_id, img_name, img_color){
 	var img_fname = imgs_path + img_name;
 	var image = document.createElement("img");
 	
+	image.width = 100;
+	image.height = 100;
 	image.src = img_fname;
 	//image.style = "background-color:red;";
 	
