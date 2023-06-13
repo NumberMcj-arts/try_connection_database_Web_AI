@@ -167,35 +167,40 @@ function add_card(parent_element_id, card_name){
 }
 
 function add_possibility(parent_element_id, possibility_name){
-	var img_name;
 	
-	if (possibility_name.split(":")[0] == "play"){
-		var img_color = card_name.split(":")[1];
-		
-		if ((img_color == "yellow")
-			|| (img_color == "blue")
-			|| (img_color == "red")
-			|| (img_color == "green"))
-		{
-			img_name = "cards/" + card_name.split(":")[2] + ".png";
+	
+	if ((possibility_name.split(":")[0] == "play")
+		|| (possibility_name.split(":")[0] == "take")){
+			
+		var img_name;
+			
+		if (possibility_name.split(":")[0] == "play"){
+			var img_color = card_name.split(":")[1];
+			
+			if ((img_color == "yellow")
+				|| (img_color == "blue")
+				|| (img_color == "red")
+				|| (img_color == "green"))
+			{
+				img_name = "cards/" + card_name.split(":")[2] + ".png";
+				}
+			else{
+				img_name = "cards/" + card_name.split(":")[1] + ".png";
+				img_color = card_name.split(":")[3];
 			}
-		else{
-			img_name = "cards/" + card_name.split(":")[1] + ".png";
-			img_color = card_name.split(":")[3];
+		} else  {
+			
+			img_name = "take_cards.png";
+			img_color = "";
+			
+			add_image(parent_element_id);
 		}
-	} else if (possibility_name.split(":")[0] == "take") {
 		
-		img_name = "take_cards.png"
+		add_image(parent_element_id, img_name, img_color);
 		
-		add_image(parent_element_id);
-	}
-	else {
+	} else {
 		document.getElementById('error').value = "you can only play or take cards :'(";
 	}
-	
-	
-	
-	add_image(parent_element_id, img_name, img_color);
 }
 
 function loadImages(){
