@@ -1,3 +1,5 @@
+var imgs_path = "../../../Web/ressources/";
+
 
 function readJSON(file) {
     var request = new XMLHttpRequest();
@@ -102,17 +104,18 @@ function loadGameState(){
 	gamestate_div.appendChild(document.createElement("br"));
 }
 
+function add_image(parent_element_id, img_name){
+	var parent_element = document.getElementById(parent_element_id);
+	var img_fname = imgs_path + img_name;
+	var image = document.createElement("img");
+	
+	image.src = img_fname;
+	parent_element.appendChild(image);
+}
+
 function loadImages(){
 	
-	var img_path = "../../../Web/ressources/cards/1.png";
-	
-	var images_div = document.getElementById("images_test");
-	
-	var image = document.createElement("img");
-	image.id = "test";
-	image.src = img_path;
-	//image.setAttribute(src, img_path);
-	images_div.appendChild(image);
+	add_image("images_test", "cards/5.png");
 }
 
 function initState(){
