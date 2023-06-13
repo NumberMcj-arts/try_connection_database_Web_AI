@@ -143,7 +143,6 @@ function add_card(parent_element_id, card_name){
 	
 	var img_color = card_name.split(":")[0];
 	var img_name;
-	var description;
 	
 	if ((img_color == "yellow")
 		|| (img_color == "blue")
@@ -156,6 +155,47 @@ function add_card(parent_element_id, card_name){
 		img_name = "cards/" + card_name.split(":")[0] + ".png";
 		img_color = "";
 	}
+	
+	add_image(parent_element_id, img_name, img_color);
+	
+	//add_image(card_div.id, img_name);
+	//card_div.appendChild(document.createElement("br"));
+	//card_div.appendChild(descr_div);
+	//card_div.appendChild(document.createElement("br"));
+	
+	//parent_element.appendChild(card_div);
+}
+
+function add_possibility(parent_element_id, possibility_name){
+	//var parent_element = document.getElementById(parent_element_id);
+	
+	//var card_div = document.createElement("div");
+	//card_div.id = "card_div_" + card_idx.toString();
+	//card_idx += 1;
+	
+	var img_name;
+	
+	if (possibility_name.split(":")[0] == "play"){
+		var img_color = card_name.split(":")[1];
+		
+		if ((img_color == "yellow")
+			|| (img_color == "blue")
+			|| (img_color == "red")
+			|| (img_color == "green"))
+		{
+			img_name = "cards/" + card_name.split(":")[2] + ".png";
+			}
+		else{
+			img_name = "cards/" + card_name.split(":")[1] + ".png";
+			img_color = card_name.split(":")[3];
+		}
+	} else if (possibility_name.split(":")[0] == "take") {
+	}
+	else {
+		document.getElementById('error').value = "you can only play or take cards :'(";
+	}
+	
+	
 	
 	add_image(parent_element_id, img_name, img_color);
 	
@@ -186,6 +226,8 @@ function initState(){
 	//test = readJSON('sample.json');
 	//test = parseJSON('sample.json');
 	//document.getElementById('state').value = test;
+	
+	document.getElementById('error').value = ":)";
 	
 	loadPlayers();
 	loadGameState();
