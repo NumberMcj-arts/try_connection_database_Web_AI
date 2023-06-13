@@ -12,13 +12,13 @@ var test = {
             "yellow:3"
         ], 
         possible_actions: [
-            "play:blue:1\n", 
-            "play:color_desire:desired_color:yellow\n", 
-            "play:color_desire:desired_color:blue\n", 
-            "play:color_desire:desired_color:green\n", 
-            "play:color_desire:desired_color:red\n", 
-            "play:red:2\n", 
-            "take:cards:from_stack\n"
+            "play:blue:1", 
+            "play:color_desire:desired_color:yellow", 
+            "play:color_desire:desired_color:blue", 
+            "play:color_desire:desired_color:green", 
+            "play:color_desire:desired_color:red", 
+            "play:red:2", 
+            "take:cards:from_stack"
         ]
     }, 
     current_player: "harald", 
@@ -173,10 +173,9 @@ function add_possibility(parent_element_id, possibility_name){
 		|| (possibility_name.split(":")[0] == "take")){
 			
 		var img_name;
+		var img_color = card_name.split(":")[1];
 			
 		if (possibility_name.split(":")[0] == "play"){
-			var img_color = card_name.split(":")[1];
-			
 			if ((img_color == "yellow")
 				|| (img_color == "blue")
 				|| (img_color == "red")
@@ -192,8 +191,6 @@ function add_possibility(parent_element_id, possibility_name){
 			
 			img_name = "take_cards.png";
 			img_color = "";
-			
-			add_image(parent_element_id);
 		}
 		
 		add_image(parent_element_id, img_name, img_color);
@@ -210,11 +207,18 @@ function loadImages(){
 	add_card("images_test", "red:9");
 	add_card("images_test", "color_desire:nr:3");
 	add_card("images_test", "blue:turn_around");
+	add_possibility("My_Actions", "play:blue:1");
 }
 
 function loadMyCards(){
 	test.curr_player_state.cards_on_hand.forEach(function(curr_card, index){
 		add_card("My_Cards", curr_card);
+	});
+}
+
+function loadMyPossibilities(){
+	test.curr_player_state.possible_actions.forEach(function(curr_action, index){
+		add_possibility("My_Actions", curr_action);
 	});
 }
 
@@ -230,6 +234,7 @@ function initState(){
 	
 	loadImages();
 	loadMyCards();
+	loadMyPossibilities();
 }
 
 function update(){
