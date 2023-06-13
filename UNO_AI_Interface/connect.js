@@ -144,8 +144,6 @@ function add_possibility(parent_element_id, possibility_name){
 	if ((general_action == "play")
 		|| (general_action == "take")){
 		
-		document.getElementById('info').value = general_action;
-		
 		img_color = possibility_name.split(":")[1];
 		
 		if (general_action == "play"){
