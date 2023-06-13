@@ -190,6 +190,10 @@ function add_possibility(parent_element_id, possibility_name){
 			img_color = card_name.split(":")[3];
 		}
 	} else if (possibility_name.split(":")[0] == "take") {
+		
+		img_name = "take_cards.png"
+		
+		add_image(parent_element_id);
 	}
 	else {
 		document.getElementById('error').value = "you can only play or take cards :'(";
@@ -198,13 +202,6 @@ function add_possibility(parent_element_id, possibility_name){
 	
 	
 	add_image(parent_element_id, img_name, img_color);
-	
-	//add_image(card_div.id, img_name);
-	//card_div.appendChild(document.createElement("br"));
-	//card_div.appendChild(descr_div);
-	//card_div.appendChild(document.createElement("br"));
-	
-	//parent_element.appendChild(card_div);
 }
 
 function loadImages(){
