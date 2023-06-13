@@ -48,7 +48,7 @@ var test = {
     ]
 };
 
-var card_idx = 0;
+//var card_idx = 0;
 
 function readJSON(file) {
     var request = new XMLHttpRequest();
@@ -104,7 +104,7 @@ function loadGameState(){
 
 function add_image(parent_element_id, img_name, img_descr){
 	
-	var card_div = document.createElement("div");
+	//var card_div = document.createElement("div");
 	//card_div.style = "outline: 5px dotted green;";
 	//card_div.id = "card_div_" + card_idx.toString();
 	//card_idx += 1;
@@ -112,31 +112,30 @@ function add_image(parent_element_id, img_name, img_descr){
 	var parent_element = document.getElementById(parent_element_id);
 	var img_fname = imgs_path + img_name;
 	var image = document.createElement("img");
-	var descr_div = document.createElement("output");
+	var descr_out = document.createElement("output");
 	
-	descr_div.value = img_descr;
+	descr_out.value = img_descr;
 	
 	image.src = img_fname;
 	//image.style = "background-color:red;";
-	//card_div.appendChild(descr_div);
-	//card_div.appendChild(document.createElement("br"));
-	card_div.appendChild(image);
-	//card_div.appendChild(descr_div);
+	//parent_element.appendChild(descr_div);
+	//parent_element.appendChild(document.createElement("br"));
+	parent_element.appendChild(image);
+	parent_element.appendChild(descr_out);
 	
-	parent_element.appendChild(card_div);
+	//parent_element.appendChild(card_div);
 }
 
 function add_card(parent_element_id, card_name){
-	var parent_element = document.getElementById(parent_element_id);
+	//var parent_element = document.getElementById(parent_element_id);
 	
-	var card_div = document.createElement("div");
-	card_div.id = "card_div_" + card_idx.toString();
-	card_idx += 1;
+	//var card_div = document.createElement("div");
+	//card_div.id = "card_div_" + card_idx.toString();
+	//card_idx += 1;
 	
 	var img_color = card_name.split(":")[0];
 	var img_name;
 	var description;
-	var descr_div = document.createElement("output");
 	
 	if ((img_color == "yellow")
 		|| (img_color == "blue")
@@ -151,21 +150,21 @@ function add_card(parent_element_id, card_name){
 		description = card_name.split(":")[2];
 	}
 	
-	descr_div.value = description;
+	add_image(parent_element_id, img_name, description);
 	
-	add_image(card_div.id, img_name);
-	card_div.appendChild(document.createElement("br"));
-	card_div.appendChild(descr_div);
-	card_div.appendChild(document.createElement("br"));
+	//add_image(card_div.id, img_name);
+	//card_div.appendChild(document.createElement("br"));
+	//card_div.appendChild(descr_div);
+	//card_div.appendChild(document.createElement("br"));
 	
-	parent_element.appendChild(card_div);
+	//parent_element.appendChild(card_div);
 }
 
 function loadImages(){
 	add_image("images_test", "cards/5.png", "Bonze");
 	add_image("images_test", "cards/8.png", "Sack");
 	//add_image("images_test", "cards/9.png", "Viech");
-	//add_card("images_test", "red:9");
+	add_card("images_test", "red:9");
 	//add_card("images_test", "color_desire:nr:3");
 }
 
