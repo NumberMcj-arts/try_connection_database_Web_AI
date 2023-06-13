@@ -168,27 +168,31 @@ function add_card(parent_element_id, card_name){
 
 function add_possibility(parent_element_id, possibility_name){
 	
+	var img_name;
+	var img_color;
 	
-	if ((possibility_name.split(":")[0] == "play")
-		|| (possibility_name.split(":")[0] == "take")){
-			
-		var img_name;
-		var img_color = card_name.split(":")[1];
-			
-		if (possibility_name.split(":")[0] == "play"){
+	var general_action = possibility_name.split(":")[0];
+	
+	if ((general_action == "play")
+		|| (general_action == "take")){
+		
+		document.getElementById('info').value = general_action;
+		
+		img_color = possibility_name.split(":")[1];
+		
+		if (general_action == "play"){
 			if ((img_color == "yellow")
 				|| (img_color == "blue")
 				|| (img_color == "red")
 				|| (img_color == "green"))
 			{
-				img_name = "cards/" + card_name.split(":")[2] + ".png";
+				img_name = "cards/" + possibility_name.split(":")[2] + ".png";
 				}
 			else{
-				img_name = "cards/" + card_name.split(":")[1] + ".png";
-				img_color = card_name.split(":")[3];
+				img_name = "cards/" + possibility_name.split(":")[1] + ".png";
+				img_color = possibility_name.split(":")[3];
 			}
 		} else  {
-			
 			img_name = "take_cards.png";
 			img_color = "";
 		}
@@ -200,14 +204,20 @@ function add_possibility(parent_element_id, possibility_name){
 	}
 }
 
-function loadImages(){
-	//add_image("images_test", "cards/5.png", "Bonze");
-	//add_image("images_test", "cards/8.png", "Sack");
-	//add_image("images_test", "cards/9.png", "Viech");
-	add_card("images_test", "red:9");
+function test_loadImages(){
+	add_image("images_test", "cards/5.png", "Bonze");
+	add_image("images_test", "cards/8.png", "Sack");
+	add_image("images_test", "cards/9.png", "Viech");
+	add_card("My_Actions", "red:9");
 	add_card("images_test", "color_desire:nr:3");
 	add_card("images_test", "blue:turn_around");
 	add_possibility("My_Actions", "play:blue:1");
+	add_possibility("My_Actions", "play:color_desire:desired_color:yellow");
+	add_possibility("My_Actions", "take:cards:from_stack");
+	add_possibility("My_Actions", "play:color_desire:desired_color:green");
+	add_possibility("My_Actions", "play:take_4:desired_color:red");
+	add_possibility("My_Actions", "play:red:2");
+	add_possibility("My_Actions", "play:yellow:turn_around");
 }
 
 function loadMyCards(){
@@ -227,12 +237,14 @@ function initState(){
 	//test = parseJSON('sample.json');
 	//document.getElementById('state').value = test;
 	
+	//test_loadImages();
+	
 	document.getElementById('error').value = ":)";
 	
 	loadPlayers();
 	loadGameState();
 	
-	loadImages();
+	
 	loadMyCards();
 	loadMyPossibilities();
 }
