@@ -60,11 +60,9 @@ function loadPlayers(){
 	var players_div = document.getElementById("players");
 	test.players_cards_in_hand.forEach(function(currentPlayer, index){
 		var player_in_div = document.createElement("output");
+		player_in_div.value = currentPlayer.player_name + ": " + currentPlayer.nr_cards_in_hand + " Cards";
 		if (currentPlayer.player_name == test.current_player){
-			player_in_div.value = "->" + currentPlayer.player_name + ": " + currentPlayer.nr_cards_in_hand + "Cards";
-		}
-		else {
-			player_in_div.value = currentPlayer.player_name + ": " + currentPlayer.nr_cards_in_hand + "Cards";
+			player_in_div.style = "border: 2px solid";
 		}
 		player_in_div.id = "player" + index.toString();
 		players_div.appendChild(player_in_div);
@@ -92,8 +90,8 @@ function loadGameState(){
 	// nr of cards taking
 	var nr_cards_taking_div = document.createElement("output");
 	nr_cards_taking_div.value = "+" + test.NrOfCardsTaking.toString();
-	gamestate_div.appendChild(nr_cards_taking_div);
-	gamestate_div.appendChild(document.createElement("br"));
+	document.getElementById("nrOfCardsTaking").appendChild(nr_cards_taking_div);
+	document.getElementById("nrOfCardsTaking").appendChild(document.createElement("br"));
 }
 
 function add_image(parent_element_id, img_name, img_color){
