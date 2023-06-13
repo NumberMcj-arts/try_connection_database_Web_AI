@@ -1,14 +1,5 @@
 var imgs_path = "../../../Web/ressources/";
 
-
-function readJSON(file) {
-    var request = new XMLHttpRequest();
-    request.open('GET', file, false);
-    request.send(null);
-    if (request.status == 200)
-        return request.responseText;
-};
-
 var test = {
     curr_player_state: {
         cards_on_hand: [
@@ -58,6 +49,16 @@ var test = {
 };
 
 //var players;
+var img_idx = 0;
+var card_idx = 0;
+
+function readJSON(file) {
+    var request = new XMLHttpRequest();
+    request.open('GET', file, false);
+    request.send(null);
+    if (request.status == 200)
+        return request.responseText;
+};
 
 function loadPlayers(){
 	//players = [];
@@ -110,19 +111,23 @@ function add_image(parent_element_id, img_name){
 	var image = document.createElement("img");
 	
 	image.src = img_fname;
+	image.id = img_name + "_img_nr_" + img_idx.toString();
+	img_idx += 1;
 	//image.style = "background-color:red;";
 	parent_element.appendChild(image);
 }
 
-function loadImages(){
-	add_image("images_test", "cards/5.png");
-	add_image("images_test", "cards/8.png");
-	add_card("images_test", "red:9");
-}
-
 function add_card(parent_element_id, card_name){
+	var parent_element = document.getElementById(parent_element_id);
+	
+	var card_div = document.createElement("div");
+	card_div.id = "card_div_" + card_idx.toString();
+	card_idx += 1;
+	
 	var img_color = card_name.split(":")[0];
 	var img_name;
+	var description;
+	var descr_div = document.createElement("output");
 	
 	if ((img_color == "yellow")
 		|| (img_color == "blue")
@@ -130,12 +135,28 @@ function add_card(parent_element_id, card_name){
 		|| (img_color == "green"))
 	{
 		img_name = "cards/" + card_name.split(":")[1] + ".png";
+		description = card_name.split(":")[0];
 		}
 	else{
 		img_name = "cards/" + card_name.split(":")[0] + ".png";
+		description = card_name.split(":")[2];
 	}
 	
-	add_image(parent_element_id, img_name);
+	descr_div.value = description;
+	
+	add_image(card_div.id, img_name);
+	card_div.appendChild(document.createElement("br"));
+	card_div.appendChild(descr_div);
+	card_div.appendChild(document.createElement("br"));
+	
+	parent_element.appendChild(card_div);
+}
+
+function loadImages(){
+	add_image("images_test", "cards/5.png");
+	add_image("images_test", "cards/8.png");
+	add_card("images_test", "red:9");
+	add_card("images_test", "color_desire:nr:3");
 }
 
 function initState(){
