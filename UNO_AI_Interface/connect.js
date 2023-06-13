@@ -79,14 +79,14 @@ function loadGameState(){
 	add_card("card_on_top", test.card_on_top);
 	
 	// playing direction
-	var play_direct_div = document.createElement("output");
+	var direct_img_name;
 	if (test.IsForwardPlayingDirection){
-		play_direct_div.value = "->";
+		direct_img_name = "forward.png";
 	}
 	else{
-		play_direct_div.value = "<-";
+		direct_img_name = "backward.png";
 	}
-	gamestate_div.appendChild(play_direct_div);
+	add_image("playingDirection", direct_img_name, "");
 	gamestate_div.appendChild(document.createElement("br"));
 	
 	// nr of cards taking
@@ -172,7 +172,7 @@ function add_possibility(parent_element_id, possibility_name){
 
 function test_loadImages(){
 	add_image("images_test", "cards/5.png", "Bonze");
-	add_image("images_test", "cards/8.png", "Sack");
+	add_image("images_test", "cards/8.png", "blue");
 	add_image("images_test", "cards/9.png", "Viech");
 	add_card("My_Actions", "red:9");
 	add_card("images_test", "color_desire:nr:3");
