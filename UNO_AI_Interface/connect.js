@@ -102,7 +102,7 @@ function loadGameState(){
 	gamestate_div.appendChild(document.createElement("br"));
 }
 
-function add_image(parent_element_id, img_name, img_descr){
+function add_image(parent_element_id, img_name, img_color){
 	
 	//var card_div = document.createElement("div");
 	//card_div.style = "outline: 5px dotted green;";
@@ -112,16 +112,21 @@ function add_image(parent_element_id, img_name, img_descr){
 	var parent_element = document.getElementById(parent_element_id);
 	var img_fname = imgs_path + img_name;
 	var image = document.createElement("img");
-	var descr_out = document.createElement("output");
-	
-	descr_out.value = img_descr;
 	
 	image.src = img_fname;
 	//image.style = "background-color:red;";
+	
+	//image.style = "border: 5px solid red;";
+	if ((img_color == "yellow")
+		|| (img_color == "blue")
+		|| (img_color == "red")
+		|| (img_color == "green"))
+	{
+		image.style = "border: 5px solid " + img_color + ";";
+	}
 	//parent_element.appendChild(descr_div);
 	//parent_element.appendChild(document.createElement("br"));
 	parent_element.appendChild(image);
-	parent_element.appendChild(descr_out);
 	
 	//parent_element.appendChild(card_div);
 }
@@ -143,14 +148,13 @@ function add_card(parent_element_id, card_name){
 		|| (img_color == "green"))
 	{
 		img_name = "cards/" + card_name.split(":")[1] + ".png";
-		description = card_name.split(":")[0];
 		}
 	else{
 		img_name = "cards/" + card_name.split(":")[0] + ".png";
-		description = card_name.split(":")[2];
+		img_color = "";
 	}
 	
-	add_image(parent_element_id, img_name, description);
+	add_image(parent_element_id, img_name, img_color);
 	
 	//add_image(card_div.id, img_name);
 	//card_div.appendChild(document.createElement("br"));
@@ -161,11 +165,12 @@ function add_card(parent_element_id, card_name){
 }
 
 function loadImages(){
-	add_image("images_test", "cards/5.png", "Bonze");
-	add_image("images_test", "cards/8.png", "Sack");
+	//add_image("images_test", "cards/5.png", "Bonze");
+	//add_image("images_test", "cards/8.png", "Sack");
 	//add_image("images_test", "cards/9.png", "Viech");
 	add_card("images_test", "red:9");
-	//add_card("images_test", "color_desire:nr:3");
+	add_card("images_test", "color_desire:nr:3");
+	add_card("images_test", "blue:turn_around");
 }
 
 function initState(){
